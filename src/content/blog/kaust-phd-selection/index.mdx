@@ -1,0 +1,116 @@
+---
+title: 'KAUST 如何使用工具高效率选导师陶瓷'
+description: '八爪鱼+Kimi 工具辅助的博士导师选择方法'
+publishDate: '2025-02-04 16:00:00'
+tags:
+  - academic
+  - worksheet
+draft: false
+---
+
+有一段时间在观察KAUST，顺便思考了下之后升学时怎么选教授，我决定使用SPA以及AI来帮我初选。
+
+## 处理思路
+
+### 信息获取
+
+使用八爪鱼进行信息爬取。
+
+[点击此处进行注册](https://affiliate.bazhuayu.com/qDvnJT)
+
+邀请码： `qDvnJT`
+
+功能强大，操作简单，无需编写代码就能采集网站数据！我晚一些会出教程，但是相信简单的操作你一上手就会。即使对于具有代码能力的人来说，也节省了很多自行编写和调试代码的时间和精力。
+
+### 信息处理
+
+使用Deepseek-r1编写脚本，比如我想要知道可能和network即网络方向的教授。
+
+```prompt
+帮我简单写一个处理表格的excel脚本，输出所有满足以下条件的行：任何一格中含有network字段
+```
+
+检查并修改输出的代码并运行。
+
+```python
+import pandas as pd
+
+# 读取Excel文件（修改为你的文件路径）
+input_file = "Faculty _ King Abdullah University.xlsx"
+df = pd.read_excel(input_file)
+
+# 创建筛选条件：任一单元格包含"network"（不区分大小写）
+condition = df.apply(lambda row: row.astype(str).str.contains('network', case=False).any(), axis=1)
+
+# 应用筛选条件
+filtered_df = df[condition]
+
+# 保存结果到新文件
+output_file = "filtered_rows.xlsx"
+filtered_df.to_excel(output_file, index=False)
+
+print(f"找到 {len(filtered_df)} 行匹配结果，已保存到 {output_file}")
+```
+
+将所有结果直接喂给Kimi k1.5，让他筛选。
+
+## 样例结果
+
+### 1. **SHEHAB AHMED**
+
+- **职位**：电气与计算机工程教授
+- **个人主页**：[Shehab Ahmed](https://www.kaust.edu.sa/en/study/faculty/shehab-ahmed)
+- **研究方向**：Ahmed教授的研究领域涵盖电力转换和机电系统。他的研究旨在将电子学、机械学、计算机科学和控制学科智能融合，开发用于未来智能电网和智能油田的新型设备和软件。他在智能电网领域的具体研究兴趣包括：分布式/可再生能源发电、电力转换、微电网能源管理/存储、混合动力和电动汽车传动系统以及高压直流输电系统（HVDC）。他在油田地下机电系统方面的工作旨在提高钻井操作效率、改善井筒完整性评估并支持成功的电缆输送。
+
+- **联系方式**：[shehab.ahmed@kaust.edu.sa](mailto:shehab.ahmed@kaust.edu.sa)
+
+### 2. **TALAL AL ATTAR**
+
+- **职位**：计算机、电气与数学科学与工程教学教授
+- **个人主页**：[Talal Al Attar](https://www.kaust.edu.sa/en/study/faculty/talal-al-attar)
+- **所属部门**：计算机、电气与数学科学与工程部
+- **联系方式**：[talal.attar@kaust.edu.sa](mailto:talal.attar@kaust.edu.sa)
+
+### 3. **TAREQ AL-NAFFOURI**
+
+- **职位**：电气与计算机工程教授
+- **个人主页**：[Tareq Al-Naffouri](https://www.kaust.edu.sa/en/study/faculty/tareq-alnaffouri)
+- **研究方向**：Al-Naffouri教授的研究兴趣集中在自适应、稀疏和统计信号处理及其应用，包括通信、超宽带和超声定位与跟踪。他的研究还扩展到无线网络的设计与分析。
+- **联系方式**：[tareq.alnaffouri@kaust.edu.sa](mailto:tareq.alnaffouri@kaust.edu.sa)
+
+### 4. **MOHAMED-SLIM ALOUINI**
+
+- **职位**：电气与计算机工程教授，阿尔·花拉子米杰出教授
+- **个人主页**：[Mohamed-Slim Alouini](https://www.kaust.edu.sa/en/study/faculty/mohamed-slim-alouini)
+- **研究方向**：Mohamed-Slim Alouini教授于2009年加入阿卜杜拉国王科技大学（KAUST），是创始教员之一。他现任联合国教科文组织"连接未连接者"教育主席，并领导通信理论实验室的活动。他的研究兴趣包括多样性合并技术、MIMO技术、多跳/合作通信系统、光学无线通信系统、认知无线电系统、绿色通信系统和网络、极端环境下的无线通信系统和网络以及天地空一体化网络。他目前特别关注农村、低收入、灾难和/或难以到达地区的信息和通信技术分布、接入和使用的不均衡问题。
+- **联系方式**：[slim.alouini@kaust.edu.sa](mailto:slim.alouini@kaust.edu.sa)
+
+### 5. **MARCO CANINI**
+
+- **职位**：计算机科学副教授
+- **个人主页**：[Marco Canini](https://www.kaust.edu.sa/en/study/faculty/marcocanini)
+- **研究方向**：Canini教授的研究兴趣在于大规模网络计算机系统的原理构建和运行，特别是在分布式系统、大规模计算和计算机网络方面，重点是云计算和可编程网络。他目前的工作重点是改进网络系统的设计、实现和运行，关注可靠性、性能、安全性和能源效率等关键属性。
+- **联系方式**：[marco@kaust.edu.sa](mailto:marco@kaust.edu.sa)
+
+### 6. **MARC DACIER**
+
+- **职位**：计算机科学教授
+- **个人主页**：[Marc Dacier](https://www.kaust.edu.sa/en/study/faculty/marc-dacier)
+- **研究方向**：Marc Dacier是计算机科学（CS）的全职教授，也是King Abdullah University of Science and Technology（KAUST）弹性计算与网络安全研究中心（RC3）的成员。Dacier博士是网络安全领域的国际知名专家，曾担任120多个主要安全和可靠性会议的程序委员会成员，并担任多个顶级技术同行评审期刊的编委。
+- **联系方式**：[marc.dacier@kaust.edu.sa](mailto:marc.dacier@kaust.edu.sa)
+
+### 7. **ROBERTO DI PIETRO**
+
+- **职位**：计算机科学教授
+- **个人主页**：[Roberto Di Pietro](https://www.kaust.edu.sa/en/study/faculty/roberto-di-pietro)
+- **研究方向**：Roberto教授的目标是在网络安全研究中追求卓越，解决该领域的基础和应用挑战，并产生影响和创新。他的研究兴趣特别在于分布式系统的安全和隐私，特别是支持关键基础设施的系统。他还对数据科学、在线社交网络以及应用人工智能技术解决当前和未来系统中的安全和隐私问题感兴趣。
+- **联系方式**：[roberto.dipietro@kaust.edu.sa](mailto:roberto.dipietro@kaust.edu.sa)
+
+### 8. **BASEM SHIHADA**
+
+- **职位**：计算机科学教授
+- **个人主页**：[Basem Shihada](https://www.kaust.edu.sa/en/study/faculty/basem-shihada)
+- **研究方向**：Shihada教授的研究涵盖了有线和无线通信网络的广泛主题，包括无线网状网络、无线传感器网络、多媒体网络和光网络。他还对网络安全和云计算感兴趣。
+- **联系方式**：[basem.shihada@kaust.edu.sa](mailto:basem.shihada@kaust.edu.sa)
+
+（文章内容较长，此处省略部分教授信息以保持简洁）
