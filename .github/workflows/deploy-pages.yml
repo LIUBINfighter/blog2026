@@ -35,10 +35,13 @@ jobs:
       - name: Build site
         run: bun run build
 
+      - name: Ensure no Jekyll processing
+        run: touch dist/.nojekyll
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/client
+          path: dist
 
   deploy:
     environment:
