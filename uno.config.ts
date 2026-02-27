@@ -187,6 +187,10 @@ export default defineConfig({
     'rounded-b-2xl',
     // Typography
     'text-base',
-    'prose'
+    'prose',
+    // Header layout
+    'sm:flex-row',
+    'flex-col',
+    'flex-row'
   ]
 })
