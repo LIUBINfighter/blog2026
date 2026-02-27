@@ -1,10 +1,10 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import react from '@astrojs/react'
 import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-
 // Local integrations
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
 // Shiki
@@ -100,7 +100,8 @@ export default defineConfig({
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
     // mdx(),
-    AstroPureIntegration(config)
+    AstroPureIntegration(config),
+    react()
   ],
 
   // [Experimental]
