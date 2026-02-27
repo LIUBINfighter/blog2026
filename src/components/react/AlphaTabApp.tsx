@@ -215,59 +215,59 @@ const AlphaTabApp: React.FC<AlphaTabAppProps> = ({
   }, [source, sourceLabel]);
 
   return (
-    <div className={`flex flex-col gap-8 ${className ?? ""}`}>
+    <div className={`alpha-tab-app flex flex-col gap-8 ${className ?? ""}`}>
       <style suppressHydrationWarning>{`
-        :root {
-          --at-panel-bg: color-mix(in srgb, var(--surface) 92%, transparent);
-          --at-panel-surface: var(--surface-strong);
-          --at-panel-subtle-bg: color-mix(in srgb, var(--surface-subtle) 100%, transparent);
-          --at-border-color: color-mix(in srgb, var(--border) 78%, transparent);
-          --at-text-primary: var(--text-primary);
-          --at-text-secondary: var(--text-secondary);
-          --at-text-tertiary: var(--text-tertiary);
-          --at-control-surface: var(--control-surface);
-          --at-control-text: var(--control-text);
-          --at-control-active-bg: var(--control-active-bg);
-          --at-control-active-text: var(--control-active-text);
-          --at-track-active-bg: var(--track-active-bg);
-          --at-track-hover-bg: var(--track-hover-bg);
-          --at-track-active-icon: var(--track-active-icon);
-          --at-overlay-bg: var(--overlay-bg);
-          --at-overlay-content-bg: var(--overlay-content-bg);
-          --at-overlay-text: var(--overlay-text);
-          --at-badge-bg: var(--badge-bg);
-          --at-badge-text: var(--badge-text);
-          --at-accent: var(--accent-strong);
+        .alpha-tab-app {
+          --at-panel-bg: color-mix(in srgb, var(--surface, hsl(var(--muted))) 92%, transparent);
+          --at-panel-surface: var(--surface-strong, hsl(var(--card)));
+          --at-panel-subtle-bg: color-mix(in srgb, var(--surface-subtle, hsl(var(--muted))) 100%, transparent);
+          --at-border-color: color-mix(in srgb, var(--border, hsl(var(--border))) 78%, transparent);
+          --at-text-primary: var(--text-primary, hsl(var(--foreground)));
+          --at-text-secondary: var(--text-secondary, hsl(var(--muted-foreground)));
+          --at-text-tertiary: var(--text-tertiary, hsl(var(--muted-foreground) / 0.6));
+          --at-control-surface: var(--control-surface, hsl(var(--muted)));
+          --at-control-text: var(--control-text, hsl(var(--foreground)));
+          --at-control-active-bg: var(--control-active-bg, hsl(var(--primary)));
+          --at-control-active-text: var(--control-active-text, hsl(var(--primary-foreground)));
+          --at-track-active-bg: var(--track-active-bg, hsl(var(--muted)));
+          --at-track-hover-bg: var(--track-hover-bg, hsl(var(--muted) / 0.8));
+          --at-track-active-icon: var(--track-active-icon, hsl(var(--primary)));
+          --at-overlay-bg: var(--overlay-bg, hsl(var(--background) / 0.8));
+          --at-overlay-content-bg: var(--overlay-content-bg, hsl(var(--card)));
+          --at-overlay-text: var(--overlay-text, hsl(var(--foreground)));
+          --at-badge-bg: var(--badge-bg, hsl(var(--primary)));
+          --at-badge-text: var(--badge-text, hsl(var(--primary-foreground)));
+          --at-accent: var(--accent-strong, hsl(var(--primary)));
           --at-cursor-beat-width: 20vh;
           /* dedicated select capsule variables (light) */
-          --at-select-surface: var(--surface-strong);
-          --at-select-text: var(--control-text);
+          --at-select-surface: var(--surface-strong, hsl(var(--card)));
+          --at-select-text: var(--control-text, hsl(var(--foreground)));
         }
-        html.dark, [data-theme='dark'] {
-          --at-panel-bg: color-mix(in srgb, var(--surface) 94%, transparent);
-          --at-panel-surface: var(--surface-strong);
-          --at-panel-subtle-bg: color-mix(in srgb, var(--surface-subtle) 100%, transparent);
-          --at-border-color: color-mix(in srgb, var(--border) 82%, transparent);
-          --at-text-primary: var(--text-primary);
-          --at-text-secondary: var(--text-secondary);
-          --at-text-tertiary: var(--text-tertiary);
-          --at-control-surface: var(--control-surface);
-          --at-control-text: var(--control-text);
-          --at-control-active-bg: var(--control-active-bg);
-          --at-control-active-text: var(--control-active-text);
-          --at-track-active-bg: var(--track-active-bg);
-          --at-track-hover-bg: var(--track-hover-bg);
-          --at-track-active-icon: var(--track-active-icon);
-          --at-overlay-bg: var(--overlay-bg);
-          --at-overlay-content-bg: var(--overlay-content-bg);
-          --at-overlay-text: var(--overlay-text);
-          --at-badge-bg: var(--badge-bg);
-          --at-badge-text: var(--badge-text);
-          --at-accent: var(--accent-strong);
+        html.dark .alpha-tab-app, [data-theme='dark'] .alpha-tab-app {
+          --at-panel-bg: color-mix(in srgb, var(--surface, hsl(var(--muted))) 94%, transparent);
+          --at-panel-surface: var(--surface-strong, hsl(var(--card)));
+          --at-panel-subtle-bg: color-mix(in srgb, var(--surface-subtle, hsl(var(--muted))) 100%, transparent);
+          --at-border-color: color-mix(in srgb, var(--border, hsl(var(--border))) 82%, transparent);
+          --at-text-primary: var(--text-primary, hsl(var(--foreground)));
+          --at-text-secondary: var(--text-secondary, hsl(var(--muted-foreground)));
+          --at-text-tertiary: var(--text-tertiary, hsl(var(--muted-foreground) / 0.6));
+          --at-control-surface: var(--control-surface, hsl(var(--muted)));
+          --at-control-text: var(--control-text, hsl(var(--foreground)));
+          --at-control-active-bg: var(--control-active-bg, hsl(var(--primary)));
+          --at-control-active-text: var(--control-active-text, hsl(var(--primary-foreground)));
+          --at-track-active-bg: var(--track-active-bg, hsl(var(--muted)));
+          --at-track-hover-bg: var(--track-hover-bg, hsl(var(--muted) / 0.8));
+          --at-track-active-icon: var(--track-active-icon, hsl(var(--primary)));
+          --at-overlay-bg: var(--overlay-bg, hsl(var(--background) / 0.8));
+          --at-overlay-content-bg: var(--overlay-content-bg, hsl(var(--card)));
+          --at-overlay-text: var(--overlay-text, hsl(var(--foreground)));
+          --at-badge-bg: var(--badge-bg, hsl(var(--primary)));
+          --at-badge-text: var(--badge-text, hsl(var(--primary-foreground)));
+          --at-accent: var(--accent-strong, hsl(var(--primary)));
           --at-cursor-beat-width: 20vh;
           /* dedicated select capsule variables (dark) */
-          --at-select-surface: var(--surface);
-          --at-select-text: var(--control-text);
+          --at-select-surface: var(--surface, hsl(var(--muted)));
+          --at-select-text: var(--control-text, hsl(var(--foreground)));
         }
       `}</style>
 
