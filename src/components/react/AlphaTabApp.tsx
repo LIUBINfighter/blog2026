@@ -314,7 +314,7 @@ const AlphaTabApp: React.FC<AlphaTabAppProps> = ({
         </div>
         <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-[color:var(--at-panel-subtle-bg)]/90 px-5 py-2.5 text-[0.7rem] tracking-[0.24em] text-[color:var(--at-text-tertiary)] uppercase">
           <FileMusic className="h-4 w-4" />
-          <span className="font-semibold text-[color:var(--at-text-secondary]">
+          <span className="font-semibold text-[color:var(--at-text-secondary)]">
             {displayName}
           </span>
         </div>
