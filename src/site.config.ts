@@ -108,8 +108,8 @@ export const integ: IntegrationUserConfig = {
     applyTip: [
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://blog.jay-bridge.dev/' },
-      { name: 'Avatar', val: 'https://blog.jay-bridge.dev/icon.jpg' }
+      { name: 'Link', val: 'https://blog.jaybridge.dev/' },
+      { name: 'Avatar', val: 'https://blog.jaybridge.dev/icon.jpg' }
     ],
     // Cache avatars in `public/avatars/` to improve user experience.
     cacheAvatar: false
